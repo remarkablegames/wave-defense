@@ -1,4 +1,5 @@
 import { Sprite, Tag } from '../constants'
+import { addHealth } from '.'
 
 export function addPlayer(x = center().x, y = center().y) {
   const player = add([
@@ -6,12 +7,11 @@ export function addPlayer(x = center().x, y = center().y) {
     pos(x, y),
     rotate(0),
     anchor('center'),
+    health(100, 100),
     Tag.Player,
   ])
 
-  player.onUpdate(() => {
-    player.angle += 120 * dt()
-  })
+  addHealth(player)
 
   return player
 }
