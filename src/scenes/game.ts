@@ -4,9 +4,7 @@ import { addEnemy, addPlayer } from '../gameobjects'
 scene(Scene.Game, () => {
   addPlayer()
 
-  onClick(() => addKaboom(mousePos()))
-
-  add([text('Press arrow keys', { width: width() / 2 }), pos(12, 12)])
+  add([text('Wave: 1', { width: width() / 2 }), pos(12, 12)])
 
   for (let i = 0; i < 3; i++) {
     const x = rand(0, width())

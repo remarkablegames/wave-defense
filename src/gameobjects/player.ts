@@ -1,5 +1,4 @@
 import { Sprite, Tag } from '../constants'
-import { addCursorKeys } from '../events'
 
 export function addPlayer(x = center().x, y = center().y) {
   const player = add([
@@ -9,8 +8,6 @@ export function addPlayer(x = center().x, y = center().y) {
     anchor('center'),
     Tag.Player,
   ])
-
-  addCursorKeys(player)
 
   player.onUpdate(() => {
     player.angle += 120 * dt()
