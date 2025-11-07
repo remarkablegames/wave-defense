@@ -1,8 +1,8 @@
 import { Scene } from '../constants'
-import { addEnemy, addPlayer } from '../gameobjects'
+import { addBase, addEnemy } from '../gameobjects'
 
 scene(Scene.Game, () => {
-  addPlayer()
+  addBase()
 
   add([text('Wave: 1', { width: width() / 2 }), pos(12, 12)])
 
