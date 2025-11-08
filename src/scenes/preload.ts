@@ -1,7 +1,9 @@
 import { Scene, Sprite } from '../constants'
 
 scene(Scene.Preload, () => {
-  loadSprite(Sprite.Bean, 'sprites/bean.png')
-  loadSprite(Sprite.Ghosty, 'sprites/ghosty.png')
+  Object.values(Sprite).forEach((value) => {
+    loadSprite(value, `sprites/${value}.png`)
+  })
+
   go(Scene.Game)
 })

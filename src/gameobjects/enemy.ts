@@ -6,7 +6,7 @@ export function addEnemy(x: number, y: number) {
   const speed = randi(50, 100)
 
   const enemy = add([
-    sprite(Sprite.Ghosty),
+    sprite(Sprite.Enemy),
     pos(x, y),
     anchor('center'),
     area(),

@@ -4,7 +4,7 @@ import { addHealth } from '.'
 
 export function addBase(x = center().x, y = center().y) {
   const base = add([
-    sprite(Sprite.Bean),
+    sprite(Sprite.Base),
     pos(x, y),
     anchor('center'),
     area(),
