@@ -1,6 +1,12 @@
 import { Scene } from '../constants'
 import { addCollision } from '../events'
-import { addBackground, addBase, addEnemy, addGunner } from '../gameobjects'
+import {
+  addBackground,
+  addBase,
+  addEnemy,
+  addFollowMouse,
+  addGunner,
+} from '../gameobjects'
 
 const OFFSET = 0
 
@@ -9,6 +15,8 @@ scene(Scene.Game, () => {
   addBase()
 
   add([text('Wave: 1', { width: width() / 2 }), pos(12, 12)])
+
+  addFollowMouse()
 
   const time = 5
   const maxLoops = 5
