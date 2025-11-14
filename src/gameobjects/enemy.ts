@@ -9,6 +9,7 @@ export function addEnemy(x: number, y: number) {
 
   const enemy = add([
     sprite(Sprite.Enemy),
+    scale(0.5),
     pos(x, y),
     anchor('center'),
     area(),

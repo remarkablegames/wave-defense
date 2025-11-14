@@ -8,6 +8,7 @@ export type Gunner = ReturnType<typeof addGunner>
 export function addGunner(x = mousePos().x, y = mousePos().y) {
   const gunner = add([
     sprite(Sprite.Gunner),
+    scale(0.5),
     pos(x, y),
     anchor('center'),
     area(),

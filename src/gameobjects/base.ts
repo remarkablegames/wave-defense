@@ -6,6 +6,7 @@ export type Base = ReturnType<typeof addBase>
 export function addBase(x = center().x, y = center().y) {
   const base = add([
     sprite(Sprite.Base),
+    scale(0.5),
     pos(x, y),
     anchor('center'),
     area(),
