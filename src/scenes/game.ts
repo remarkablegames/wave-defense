@@ -1,8 +1,8 @@
 import { Scene } from '../constants'
+import { enemies } from '../data'
 import { addCollision } from '../events'
 import { addBackground, addBase, addCharacters, addEnemy } from '../gameobjects'
-
-const OFFSET = 0
+import { generateEnemyPos } from '../helpers'
 
 scene(Scene.Game, () => {
   addBackground()
@@ -15,20 +15,7 @@ scene(Scene.Game, () => {
 
   loop(
     time,
-    () => {
-      let x = 0
-      let y = 0
-
-      if (randi()) {
-        x = randi() ? -OFFSET : width() + OFFSET
-        y = rand(0, height())
-      } else {
-        x = rand(0, width())
-        y = randi() ? -OFFSET : height() + OFFSET
-      }
-
-      addEnemy(x, y)
-    },
+    () => addEnemy({ ...enemies[0], ...generateEnemyPos() }),
     maxLoops,
     true,
   )
