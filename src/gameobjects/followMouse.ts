@@ -1,14 +1,22 @@
-import { Sprite } from '../constants'
+import { Sprite, Z } from '../constants'
+import { addGunner } from '.'
 
-export function addFollowMouse() {
+export function addFollowMouse(data: { sprite: Sprite; scale: number }) {
   const followMouse = add([
-    sprite(Sprite.Gunner),
-    scale(0.5),
+    sprite(data.sprite),
+    scale(data.scale),
     anchor('center'),
-    pos(),
+    pos(mousePos()),
     opacity(0.5),
-    fakeMouse({ followMouse: true }),
+    fakeMouse(),
+    z(Z.UI),
   ])
+
+  followMouse.onMouseRelease(() => {
+    followMouse.destroy()
+    setCursor('default')
+    addGunner(followMouse.pos)
+  })
 
   return followMouse
 }

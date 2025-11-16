@@ -1,5 +1,6 @@
 import { Z } from '../constants'
 import { characters } from '../data'
+import { addFollowMouse } from '.'
 
 const HEIGHT = 150
 
@@ -12,12 +13,18 @@ export function addCharacters() {
     z(Z.UI),
   ])
 
-  characters.map((character, index) => {
-    background.add([
-      sprite(character.sprite),
-      scale(character.scale),
+  characters.forEach((data, index) => {
+    const character = background.add([
+      sprite(data.sprite),
+      scale(data.scale),
       pos(index * 10, 10),
+      area(),
       z(Z.UI),
     ])
+
+    character.onClick(() => {
+      setCursor('grab')
+      addFollowMouse(data)
+    })
   })
 }
