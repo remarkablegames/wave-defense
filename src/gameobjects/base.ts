@@ -9,7 +9,9 @@ export function addBase(x = center().x, y = center().y) {
     scale(0.5),
     pos(x, y),
     anchor('center'),
-    area(),
+    area({
+      shape: new Polygon([vec2(0, -100), vec2(180, 20), vec2(-170, 10)]),
+    }),
     body({ isStatic: true }),
     health(100, 100),
     Tag.Base,
