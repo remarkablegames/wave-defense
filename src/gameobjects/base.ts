@@ -23,7 +23,7 @@ export function addBase(x = center().x, y = center().y) {
     outline(3),
     color(WHITE),
     opacity(0.5),
-    pos(0, -20),
+    pos(0, -10),
     anchor('center'),
     Tag.Dropzone,
   ])
