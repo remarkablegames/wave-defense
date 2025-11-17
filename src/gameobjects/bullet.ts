@@ -1,6 +1,6 @@
 import { Tag } from '../constants'
 import { getClosestEnemy } from '../helpers'
-import type { Character } from '.'
+import type { Hero } from '.'
 
 const DAMAGE = 2
 const SIZE = 5
@@ -8,17 +8,17 @@ const SPEED = 300
 
 export type Bullet = ReturnType<typeof addBullet>
 
-export function addBullet(character: Character) {
-  const enemy = getClosestEnemy(character)
+export function addBullet(hero: Hero) {
+  const enemy = getClosestEnemy(hero)
 
   if (!enemy) {
     return
   }
 
-  const direction = enemy.pos.sub(character.pos).unit()
+  const direction = enemy.pos.sub(hero.pos).unit()
 
   const bullet = add([
-    pos(character.pos),
+    pos(hero.pos),
     move(direction, SPEED),
     circle(SIZE),
     area(),

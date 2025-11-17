@@ -1,13 +1,13 @@
 import { Scene } from '../constants'
 import { levels } from '../data'
 import { addCollision } from '../events'
-import { addBackground, addBase, addCharacters, addEnemy } from '../gameobjects'
+import { addBackground, addBase, addCards, addEnemy } from '../gameobjects'
 
 scene(Scene.Game, () => {
   addBackground()
   addBase()
+  addCards()
   addCollision()
-  addCharacters()
 
   add([text('Wave: 1', { width: width() / 2 }), pos(12, 12)])
 

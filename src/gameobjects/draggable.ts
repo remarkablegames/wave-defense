@@ -1,6 +1,6 @@
 import { Z } from '../constants'
-import type { Character as Data } from '../data'
-import { addCharacter } from '.'
+import type { Hero as Data } from '../data'
+import { addHero } from '.'
 
 export function addDraggable(data: Data) {
   const draggable = add([
@@ -15,7 +15,7 @@ export function addDraggable(data: Data) {
   draggable.onMouseRelease(() => {
     draggable.destroy()
     setCursor('default')
-    addCharacter(data, draggable.pos)
+    addHero(data, draggable.pos)
   })
 
   return draggable

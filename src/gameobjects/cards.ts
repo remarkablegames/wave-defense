@@ -1,10 +1,10 @@
 import { Z } from '../constants'
-import { characters } from '../data'
+import { heroes } from '../data'
 import { addDraggable } from '.'
 
 const HEIGHT = 150
 
-export function addCharacters() {
+export function addCards() {
   const background = add([
     rect(width(), HEIGHT),
     pos(0, height() - HEIGHT),
@@ -13,15 +13,15 @@ export function addCharacters() {
     z(Z.UI),
   ])
 
-  characters.forEach((data, index) => {
-    const character = background.add([
+  heroes.forEach((data, index) => {
+    const card = background.add([
       sprite(data.sprite, { width: data.width, height: data.height }),
       pos(index * 10, 10),
       area(),
       z(Z.UI),
     ])
 
-    character.onClick(() => {
+    card.onClick(() => {
       setCursor('grab')
       addDraggable(data)
     })

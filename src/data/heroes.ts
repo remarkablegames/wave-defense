@@ -1,9 +1,9 @@
 import { Sprite } from '../constants'
 import { addBullet } from '../gameobjects'
 
-export type Character = (typeof characters)[0]
+export type Hero = (typeof heroes)[0]
 
-export const characters = [
+export const heroes = [
   {
     sprite: Sprite.Guard,
     width: 100,

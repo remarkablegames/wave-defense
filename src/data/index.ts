@@ -1,3 +1,3 @@
-export * from './characters'
 export * from './enemies'
+export * from './heroes'
 export * from './levels'
