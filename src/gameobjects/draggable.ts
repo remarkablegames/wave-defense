@@ -1,6 +1,6 @@
 import { Z } from '../constants'
 import type { Hero as Data } from '../data'
-import { addHero } from '.'
+import { addHero, getBase } from '.'
 
 export function addDraggable(data: Data) {
   const draggable = add([
@@ -8,6 +8,7 @@ export function addDraggable(data: Data) {
     anchor('center'),
     pos(mousePos()),
     opacity(0.5),
+    area(),
     fakeMouse(),
     z(Z.UI),
   ])
@@ -15,7 +16,11 @@ export function addDraggable(data: Data) {
   draggable.onMouseRelease(() => {
     draggable.destroy()
     setCursor('default')
-    addHero(data, draggable.pos)
+    const base = getBase()
+
+    if (base && draggable.isColliding(base)) {
+      addHero(data, draggable.pos)
+    }
   })
 
   return draggable
