@@ -1,5 +1,5 @@
-import { Tag } from '../constants'
-import type { Enemy as Data } from '../data'
+import { Scene, Tag } from '../constants'
+import { type Enemy as Data, state } from '../data'
 import { generateEnemyPos } from '../helpers'
 import { addHealth, getBase } from '.'
 
@@ -38,6 +38,12 @@ export function addEnemy(data: Data) {
   enemy.onDeath(() => {
     enemy.destroy()
     addKaboom(enemy.pos)
+    state.tempData.enemiesTotal -= 1
+
+    if (!state.tempData.enemiesTotal) {
+      state.level += 1
+      go(Scene.Game)
+    }
   })
 
   return enemy

@@ -1,4 +1,4 @@
-import { Sprite, Tag } from '../constants'
+import { Scene, Sprite, Tag } from '../constants'
 import { addHealth } from '.'
 
 export type Base = ReturnType<typeof addBase>
@@ -28,6 +28,12 @@ export function addBase(x = center().x, y = center().y) {
     area(),
     Tag.Droppable,
   ])
+
+  base.onDeath(() => {
+    base.destroy()
+    addKaboom(base.pos)
+    go(Scene.Lose)
+  })
 
   return base
 }

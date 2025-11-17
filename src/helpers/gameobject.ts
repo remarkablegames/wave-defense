@@ -1,11 +1,5 @@
-import type { GameObj, HealthComp } from 'kaplay'
-
 import { Tag } from '../constants'
 import type { Enemy, Hero } from '../gameobjects'
-
-export function isAlive(gameObject: GameObj<HealthComp>): boolean {
-  return Boolean(gameObject.hp > 0)
-}
 
 function getEnemies() {
   return get(Tag.Enemy) as Enemy[]

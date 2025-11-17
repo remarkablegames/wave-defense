@@ -1,6 +1,5 @@
 import { Tag } from '../constants'
 import { addSplash, type Base, type Enemy } from '../gameobjects'
-import { isAlive } from '../helpers'
 
 export function addCollision() {
   onCollide(
@@ -8,11 +7,12 @@ export function addCollision() {
     Tag.Enemy,
     // @ts-expect-error Types of parameters are incompatible.
     (base: Base, enemy: Enemy) => {
-      if (isAlive(base) && isAlive(enemy)) {
-        base.hp -= enemy.damage
-        enemy.destroy()
-        addKaboom(enemy.pos)
+      if (base.dead || enemy.dead) {
+        return
       }
+
+      base.hp -= enemy.damage
+      enemy.hp = 0
     },
   )
 
@@ -21,11 +21,13 @@ export function addCollision() {
     Tag.Enemy,
     // @ts-expect-error Types of parameters are incompatible.
     (bullet: Bullet, enemy: Enemy) => {
-      if (isAlive(enemy)) {
-        addSplash(bullet.pos, bullet.direction)
-        bullet.destroy()
-        enemy.hp -= bullet.damage
+      if (enemy.dead) {
+        return
       }
+
+      addSplash(bullet.pos, bullet.direction)
+      bullet.destroy()
+      enemy.hp -= bullet.damage
     },
   )
 }

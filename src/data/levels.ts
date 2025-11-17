@@ -3,7 +3,7 @@ import { goblin } from '.'
 export type Enemy = (typeof levels)[0]['enemies'][0]['enemy']
 
 export const levels = [
-  // 1
+  // 0
   {
     enemies: [
       {

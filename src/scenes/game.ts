@@ -1,5 +1,5 @@
 import { Scene } from '../constants'
-import { levels } from '../data'
+import { levels, state } from '../data'
 import { addCollision } from '../events'
 import { addBackground, addBase, addCards, addEnemy } from '../gameobjects'
 
@@ -9,9 +9,18 @@ scene(Scene.Game, () => {
   addCards()
   addCollision()
 
-  add([text('Wave: 1', { width: width() / 2 }), pos(12, 12)])
+  add([text(`Wave: ${state.level + 1}`), pos(12, 12)])
 
-  const level = levels[0]
+  const level = levels[state.level]
+
+  if (!level) {
+    return go(Scene.Win)
+  }
+
+  state.tempData.enemiesTotal = level.enemies.reduce(
+    (total, enemy) => total + enemy.total,
+    0,
+  )
 
   level.enemies.forEach(({ enemy, timer, total }) => {
     wait(timer.wait, () => {
