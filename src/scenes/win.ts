@@ -15,10 +15,20 @@ scene(Scene.Win, () => {
     area(),
     color(BLACK),
     anchor('center'),
-    pos(0, 100),
+    pos(0, 120),
   ])
 
   button.add([text('Restart', { size: 36 }), anchor('center')])
+
+  button.onHover(() => {
+    button.color = BLUE
+    setCursor('pointer')
+  })
+
+  button.onHoverEnd(() => {
+    button.color = BLACK
+    setCursor('default')
+  })
 
   button.onClick(() => {
     state.level = 0
