@@ -32,7 +32,7 @@ export function addDraggable(data: Data) {
     const droppable = getDroppable()
 
     if (droppable && draggable.isColliding(droppable)) {
-      addHero(data, droppable.screenPos()!)
+      addHero(data, droppable)
     }
   })
 

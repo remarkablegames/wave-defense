@@ -15,10 +15,11 @@ export function addAttack(hero: Hero) {
     return
   }
 
-  const direction = enemy.pos.sub(hero.pos).unit()
+  const heroPos = hero.screenPos()!
+  const direction = enemy.pos.sub(heroPos).unit()
 
   const attack = add([
-    pos(hero.pos),
+    pos(heroPos),
     move(direction, SPEED),
     circle(SIZE),
     area(),

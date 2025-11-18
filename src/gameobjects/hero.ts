@@ -1,17 +1,17 @@
-import type { Vec2 } from 'kaplay'
-
 import type { Hero as Data } from '../data'
-import { addAttack } from '.'
+import { addAttack, type Droppable } from '.'
 
 export type Hero = ReturnType<typeof addHero>
 
-export function addHero(data: Data, position: Vec2) {
-  const hero = add([
+export function addHero(data: Data, droppable: Droppable) {
+  droppable.removeAll('*')
+
+  const hero = droppable.add([
     sprite(data.hero.sprite, {
       width: data.hero.width,
       height: data.hero.height,
     }),
-    pos(position),
+    pos(droppable.pos),
     anchor('center'),
     timer(),
   ])

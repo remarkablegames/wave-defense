@@ -3,7 +3,7 @@ import type { GameObj, Vec2 } from 'kaplay'
 import { Tag } from '../constants'
 import { getBase } from '.'
 
-type Droppable = ReturnType<typeof addDroppable>
+export type Droppable = ReturnType<typeof addDroppable>
 
 export function addDroppable(base: GameObj, position: Vec2) {
   const droppable = base.add([
