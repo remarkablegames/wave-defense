@@ -39,10 +39,15 @@ export function addEnemy(data: Data) {
     enemy.destroy()
     addKaboom(enemy.pos)
     state.tempData.enemiesTotal -= 1
+    const base = getBase()
+
+    if (!base || base.dead) {
+      return
+    }
 
     if (!state.tempData.enemiesTotal) {
       state.level += 1
-      go(Scene.Game)
+      wait(1, () => go(Scene.Game))
     }
   })
 

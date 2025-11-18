@@ -2,7 +2,7 @@ import { Tag } from '../constants'
 import { getClosestEnemy } from '../helpers'
 import type { Hero } from '.'
 
-const DAMAGE = 2
+const DAMAGE = 1
 const SIZE = 5
 const SPEED = 300
 

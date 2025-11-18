@@ -10,11 +10,11 @@ export const levels = [
         total: 10,
         enemy: {
           ...goblin,
-          damage: 5,
+          damage: 1,
           get speed() {
-            return randi(50, 100)
+            return randi(50, 60)
           },
-          health: 10,
+          health: 1,
         },
         timer: {
           wait: 3,

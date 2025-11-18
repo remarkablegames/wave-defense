@@ -5,7 +5,7 @@ import { addBackground, addBase, addCards, addEnemy } from '../gameobjects'
 
 scene(Scene.Game, () => {
   addBackground()
-  addBase()
+  addBase(center())
   addCards()
   addCollision()
 
