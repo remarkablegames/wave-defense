@@ -1,12 +1,12 @@
 import { Tag, Z } from '../constants'
-import type { Hero as Data } from '../data'
+import type { Hero } from '../data'
 import { addHero, getDroppable } from '.'
 
-export function addDraggable(data: Data) {
+export function addDraggable(hero: Hero) {
   const draggable = add([
-    sprite(data.hero.sprite, {
-      width: data.hero.width,
-      height: data.hero.height,
+    sprite(hero.sprite, {
+      width: hero.width,
+      height: hero.height,
     }),
     color(RED),
     opacity(0.5),
@@ -32,7 +32,7 @@ export function addDraggable(data: Data) {
     const droppable = getDroppable()
 
     if (droppable && draggable.isColliding(droppable)) {
-      addHero(data, droppable)
+      addHero(hero, droppable)
     }
   })
 

@@ -7,17 +7,17 @@ export function addHero(data: Data, droppable: Droppable) {
   droppable.removeAll('*')
 
   const hero = droppable.add([
-    sprite(data.hero.sprite, {
-      width: data.hero.width,
-      height: data.hero.height,
+    sprite(data.sprite, {
+      width: data.width,
+      height: data.height,
     }),
     pos(droppable.pos),
     anchor('center'),
     timer(),
   ])
 
-  hero.wait(data.timer.wait, () => {
-    hero.loop(data.timer.interval, () => addAttack(hero))
+  hero.wait(data.attack.timer.wait, () => {
+    hero.loop(data.attack.timer.interval, () => addAttack(hero))
   })
 
   return hero

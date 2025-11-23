@@ -1,5 +1,6 @@
 export enum Sprite {
   Archer = 'archer',
+  Arrow = 'arrow',
   Background = 'background',
   Beachball = 'beachball',
   Goblin = 'goblin',

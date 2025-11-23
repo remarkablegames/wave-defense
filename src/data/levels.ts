@@ -25,29 +25,7 @@ export const levels = [
         },
       },
     ],
-    heroes: [
-      {
-        hero: guard,
-        timer: {
-          wait: 1,
-          interval: 3,
-        },
-      },
-      {
-        hero: witch,
-        timer: {
-          wait: 1,
-          interval: 3,
-        },
-      },
-      {
-        hero: archer,
-        timer: {
-          wait: 1,
-          interval: 3,
-        },
-      },
-    ],
+    heroes: [guard, witch, archer],
     bases: [
       {
         ...island,

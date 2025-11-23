@@ -15,14 +15,11 @@ export function addCards(heroes: Hero[]) {
 
   heroes.forEach((data, index) => {
     const hero = shore.add([
-      sprite(data.hero.sprite, {
-        width: data.hero.width,
-        height: data.hero.height,
+      sprite(data.sprite, {
+        width: data.width,
+        height: data.height,
       }),
-      pos(
-        index * (data.hero.width + HERO_OFFSET_X) + HERO_OFFSET_X,
-        HERO_OFFSET_Y,
-      ),
+      pos(index * (data.width + HERO_OFFSET_X) + HERO_OFFSET_X, HERO_OFFSET_Y),
       area(),
       z(Z.UI),
     ])

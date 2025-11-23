@@ -1,5 +1,5 @@
-import { Tag } from '../constants'
-import { beachball } from '../data'
+import { Sprite, Tag } from '../constants'
+import { arrow, beachball } from '../data'
 import { getClosestEnemy } from '../helpers'
 import type { Hero } from '.'
 
@@ -15,21 +15,35 @@ export function addAttack(hero: Hero) {
   const heroPos = hero.screenPos()!
   const direction = enemy.pos.sub(heroPos).unit()
 
+  let attackData = beachball
+  switch (hero.sprite) {
+    case Sprite.Archer:
+      attackData = arrow
+      break
+    case Sprite.Witch:
+      attackData = beachball
+      break
+    case Sprite.Guard:
+      attackData = beachball
+      break
+  }
+
   const attack = add([
     pos(heroPos),
-    move(direction, beachball.speed),
-    sprite(beachball.sprite, {
-      width: beachball.width,
-      height: beachball.height,
+    move(direction, attackData.speed),
+    sprite(attackData.sprite, {
+      width: attackData.width,
+      height: attackData.height,
     }),
     area({
-      shape: beachball.shape,
+      shape: attackData.shape,
     }),
+    rotate(enemy.pos.angle(hero.screenPos()!) + 90),
     offscreen({ destroy: true }),
     anchor('center'),
     Tag.Attack,
     {
-      damage: beachball.damage,
+      damage: attackData.damage,
       direction,
     },
   ])
