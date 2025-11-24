@@ -1,36 +1,24 @@
 import { Scene } from '../constants'
 import { state } from '../data'
+import { addButton } from '../gameobjects'
+
+const OFFSET_Y = 70
 
 scene(Scene.Win, () => {
-  const box = add([pos(center()), anchor('center')])
+  const { x, y } = center()
 
-  const heading = box.add([
-    text('You won!', { size: 72 }),
-    anchor('center'),
-    pos(0, -100),
-  ])
+  add([text('You won!', { size: 72 }), anchor('center'), pos(x, y - OFFSET_Y)])
 
-  const button = heading.add([
-    rect(200, 60, { radius: 8 }),
-    area(),
-    color(BLACK),
-    anchor('center'),
-    pos(0, 120),
-  ])
-
-  button.add([text('Restart', { size: 36 }), anchor('center')])
-
-  button.onHover(() => {
-    button.color = BLUE
-    setCursor('pointer')
+  const restartButton = addButton({
+    label: 'Restart',
+    size: 36,
+    width: 200,
+    height: 60,
+    comps: [pos(x, y + OFFSET_Y)],
   })
 
-  button.onHoverEnd(() => {
-    button.color = BLACK
+  restartButton.onClick(() => {
     setCursor('default')
-  })
-
-  button.onClick(() => {
     state.level = 0
     go(Scene.Game)
   })
