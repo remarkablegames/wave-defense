@@ -36,6 +36,8 @@ scene(Scene.Game, () => {
   })
 
   startButton.onClick(() => {
+    setCursor('default')
+
     level.enemies.forEach(({ enemy, timer, total }) => {
       wait(timer.wait, () => {
         loop(timer.interval, () => addEnemy(enemy), total)

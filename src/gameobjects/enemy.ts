@@ -31,7 +31,7 @@ export function addEnemy(data: Data) {
       return
     }
 
-    const direction = bases[0].pos.sub(enemy.pos).unit()
+    const direction = bases[randi(bases.length)].pos.sub(enemy.pos).unit()
     enemy.move(direction.scale(enemy.speed))
   })
 
