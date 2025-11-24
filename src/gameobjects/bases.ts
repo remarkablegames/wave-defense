@@ -13,11 +13,9 @@ export function addBases(bases: Base[]) {
       }),
       pos(data.pos),
       anchor('center'),
-      area({
-        shape: new Polygon([vec2(0, -50), vec2(90, 10), vec2(-80, 5)]),
-      }),
+      area({ shape: data.shape }),
       body({ isStatic: true }),
-      health(10, 10),
+      health(data.health, data.health),
       Tag.Base,
     ])
 

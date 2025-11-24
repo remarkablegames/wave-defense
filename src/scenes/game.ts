@@ -1,13 +1,17 @@
-import { Scene } from '../constants'
+import { Scene, Z } from '../constants'
 import { levels, state } from '../data'
 import { addCollision } from '../events'
-import { addBackground, addBases, addCards, addEnemy } from '../gameobjects'
+import {
+  addBackground,
+  addBases,
+  addButton,
+  addCards,
+  addEnemy,
+} from '../gameobjects'
 
 scene(Scene.Game, () => {
   addBackground()
   addCollision()
-
-  add([text(`Wave: ${state.level + 1}`), pos(12, 12)])
 
   const level = levels[state.level]
 
@@ -22,12 +26,25 @@ scene(Scene.Game, () => {
     0,
   )
 
+  add([text(`Wave: ${state.level + 1}`), pos(12, 12), z(Z.UI)])
+
+  const startButton = addButton({
+    label: 'Start',
+    width: 150,
+    height: 60,
+    comps: [pos(90, 90)],
+  })
+
+  startButton.onClick(() => {
+    level.enemies.forEach(({ enemy, timer, total }) => {
+      wait(timer.wait, () => {
+        loop(timer.interval, () => addEnemy(enemy), total)
+      })
+    })
+
+    startButton.destroy()
+  })
+
   addBases(level.bases)
   addCards(level.heroes)
-
-  level.enemies.forEach(({ enemy, timer, total }) => {
-    wait(timer.wait, () => {
-      loop(timer.interval, () => addEnemy(enemy), total)
-    })
-  })
 })

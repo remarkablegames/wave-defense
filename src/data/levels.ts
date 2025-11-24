@@ -10,18 +10,47 @@ export const levels = [
   {
     enemies: [
       {
+        total: 5,
+        enemy: {
+          ...goblin,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 3,
+        },
+      },
+    ],
+    heroes: [archer],
+    bases: [
+      {
+        ...island,
+        health: 3,
+        pos: center(),
+      },
+    ],
+  },
+
+  // 1
+  {
+    enemies: [
+      {
         total: 10,
         enemy: {
           ...goblin,
           damage: 1,
           get speed() {
-            return randi(50, 60)
+            return randi(100, 120)
           },
-          health: 1,
+          health: 2,
         },
         timer: {
-          wait: 3,
-          interval: 5,
+          wait: 0,
+          interval: 2,
         },
       },
     ],
@@ -29,6 +58,7 @@ export const levels = [
     bases: [
       {
         ...island,
+        health: 5,
         pos: center(),
       },
     ],
