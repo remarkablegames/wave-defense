@@ -1,6 +1,6 @@
 import { Tag, Z } from '../constants'
 import type { Hero } from '../data'
-import { addHero, getDroppable } from '.'
+import { addHero, getDroppables } from '.'
 
 export function addDraggable(hero: Hero) {
   const draggable = add([
@@ -29,11 +29,12 @@ export function addDraggable(hero: Hero) {
   draggable.onMouseRelease(() => {
     draggable.destroy()
     setCursor('default')
-    const droppable = getDroppable()
 
-    if (droppable && draggable.isColliding(droppable)) {
-      addHero(hero, droppable)
-    }
+    getDroppables().forEach((droppable) => {
+      if (draggable.isColliding(droppable)) {
+        addHero(hero, droppable)
+      }
+    })
   })
 
   return draggable

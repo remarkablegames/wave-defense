@@ -2,9 +2,26 @@ import type { Shape } from 'kaplay'
 
 import { Sprite } from '../constants'
 
+export const blackrock = {
+  sprite: Sprite.Blackrock,
+  width: 162,
+  height: 108,
+  shape: new Polygon([vec2(-25, -50), vec2(65, 35), vec2(-70, 35)]) as Shape,
+  droppable: vec2(0, 12),
+}
+
 export const island = {
   sprite: Sprite.Island,
-  width: 212,
-  height: 106,
+  width: 216,
+  height: 108,
   shape: new Polygon([vec2(0, -50), vec2(90, 10), vec2(-80, 5)]) as Shape,
+  droppable: vec2(0, -12),
+}
+
+export const yellowstone = {
+  sprite: Sprite.Yellowstone,
+  width: 200,
+  height: 108,
+  shape: new Polygon([vec2(-15, -50), vec2(90, 30), vec2(-80, 30)]) as Shape,
+  droppable: vec2(-16, -5),
 }

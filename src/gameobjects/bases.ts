@@ -20,7 +20,7 @@ export function addBases(bases: Base[]) {
     ])
 
     addHealth(base)
-    addDroppable(base, vec2(0, -10))
+    addDroppable(base, data.droppable)
 
     base.onDeath(() => {
       base.destroy()

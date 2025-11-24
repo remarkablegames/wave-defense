@@ -20,9 +20,10 @@ export function addDroppable(base: GameObj, position: Vec2) {
   return droppable
 }
 
-export function getDroppable() {
-  const droppable = getBases()[0]?.get(Tag.Droppable)[0] as Droppable
-  if (droppable?.exists()) {
-    return droppable
-  }
+export function getDroppables() {
+  const bases = getBases()
+  const droppables = bases.map(
+    (base) => base.get(Tag.Droppable)[0] as Droppable,
+  )
+  return droppables.filter((droppable) => droppable.exists())
 }

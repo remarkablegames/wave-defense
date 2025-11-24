@@ -1,4 +1,4 @@
-import { archer, goblin, guard, island, witch } from '.'
+import { archer, blackrock, goblin, guard, island, witch, yellowstone } from '.'
 
 type Level = (typeof levels)[0]
 export type Base = Level['bases'][0]
@@ -58,8 +58,18 @@ export const levels = [
     bases: [
       {
         ...island,
-        health: 5,
-        pos: center(),
+        health: 3,
+        pos: vec2(center().x - 300, center().y),
+      },
+      {
+        ...yellowstone,
+        health: 3,
+        pos: vec2(center().x, center().y),
+      },
+      {
+        ...blackrock,
+        health: 3,
+        pos: vec2(center().x + 300, center().y),
       },
     ],
   },

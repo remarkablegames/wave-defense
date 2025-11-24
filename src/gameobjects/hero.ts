@@ -11,7 +11,7 @@ export function addHero(data: Data, droppable: Droppable) {
       width: data.width,
       height: data.height,
     }),
-    pos(droppable.pos),
+    pos(),
     anchor('center'),
     timer(),
   ])

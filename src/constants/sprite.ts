@@ -3,10 +3,12 @@ export enum Sprite {
   Arrow = 'arrow',
   Background = 'background',
   Beachball = 'beachball',
+  Blackrock = 'blackrock',
   Goblin = 'goblin',
   Guard = 'guard',
   Island = 'island',
   Particle = 'particle',
   Witch = 'witch',
   Shore = 'shore',
+  Yellowstone = 'yellowstone',
 }
