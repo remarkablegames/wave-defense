@@ -4,10 +4,10 @@
 
 # FantaSea: Heroes on Vacation
 
-![release](https://img.shields.io/github/v/release/remarkablegames/fantasea)
+[![release](https://img.shields.io/github/v/release/remarkablegames/fantasea)](https://github.com/remarkablegames/fantasea/releases)
 [![build](https://github.com/remarkablegames/fantasea/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/fantasea/actions/workflows/build.yml)
 
-🏖️ Heroes at beach but the monsters crash the party.
+🏖️ Heroes at the beach but the monsters crash the party.
 
 Play the game on:
 
