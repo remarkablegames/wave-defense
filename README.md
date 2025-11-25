@@ -7,8 +7,11 @@
 ![release](https://img.shields.io/github/v/release/remarkablegames/fantasea)
 [![build](https://github.com/remarkablegames/fantasea/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/fantasea/actions/workflows/build.yml)
 
+🏖️ Heroes at beach but the monsters crash the party.
+
 Play the game on:
 
+- [itch.io](https://remarkablegames.itch.io/fantasea)
 - [remarkablegames](https://remarkablegames.org/fantasea)
 
 ## Prerequisites
