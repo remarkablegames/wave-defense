@@ -1,5 +1,7 @@
 export * from './event'
+export * from './music'
 export * from './scene'
+export * from './sound'
 export * from './sprite'
 export * from './tag'
 export * from './z'
