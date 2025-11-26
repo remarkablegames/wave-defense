@@ -31,7 +31,7 @@ scene(Scene.Menu, () => {
   ])
 
   addButton({
-    label: 'Start',
+    label: 'Play',
     size: 36,
     width: 200,
     height: 60,
