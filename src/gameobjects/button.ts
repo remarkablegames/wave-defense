@@ -1,5 +1,7 @@
 import type { Comp } from 'kaplay'
 
+import { Sound } from '../constants'
+
 export function addButton({
   comps = [],
   height = 80,
@@ -48,6 +50,7 @@ export function addButton({
 
   if (typeof onClick === 'function') {
     button.onClick(() => {
+      play(Sound.Click)
       setCursor('default')
       onClick()
     })

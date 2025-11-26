@@ -13,5 +13,5 @@ scene(Scene.Preload, () => {
     loadMusic(music, `music/${music}.mp3`)
   })
 
-  go(Scene.Game)
+  go(Scene.Menu)
 })

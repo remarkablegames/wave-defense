@@ -1,5 +1,6 @@
 import './game'
 import './lose'
+import './menu'
 import './preload'
 import './win'
 

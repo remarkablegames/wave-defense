@@ -1,3 +1,3 @@
 export enum Sound {
-  Score = 'score',
+  Click = 'click',
 }
