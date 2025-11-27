@@ -57,6 +57,12 @@ export function addAttack(hero: Hero) {
     },
   ])
 
+  switch (attack.sprite) {
+    case Sprite.Beachball:
+      attack.tag(Tag.Bounce)
+      break
+  }
+
   attack.onHurt(() => {
     attack.opacity = attack.hp / attack.maxHP
   })

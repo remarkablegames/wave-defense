@@ -47,4 +47,23 @@ export function addCollision() {
       }
     },
   )
+
+  onCollide(
+    Tag.Bounce,
+    Tag.Bounce,
+    // @ts-expect-error Types of parameters are incompatible.
+    (attack1: Attack, attack2: Attack) => {
+      if (!attack1 || !attack2) {
+        return
+      }
+
+      play(Sound.Bounce, { detune: randi(0, 12) * 100 })
+
+      attack1.direction = Vec2.fromAngle(attack1.pos.angle(attack2.pos))
+      attack2.direction = Vec2.fromAngle(attack2.pos.angle(attack1.pos))
+
+      attack1.use(move(attack1.direction, attack1.speed))
+      attack2.use(move(attack2.direction, attack2.speed))
+    },
+  )
 }
