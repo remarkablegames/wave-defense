@@ -35,7 +35,7 @@ export function addButton({
 
   button.add([text(label, { size }), anchor('center'), color(BLACK), z(zIndex)])
 
-  button.onHoverUpdate(() => {
+  const hoverUpdate = button.onHoverUpdate(() => {
     const t = time() * 10
     button.color = hsl2rgb((t / 10) % 1, 0.6, 0.7)
     button.scale = vec2(1.05)
@@ -50,8 +50,9 @@ export function addButton({
 
   if (typeof onClick === 'function') {
     button.onClick(() => {
-      play(Sound.Click)
+      hoverUpdate.cancel()
       setCursor('default')
+      play(Sound.Click)
       onClick()
     })
   }
