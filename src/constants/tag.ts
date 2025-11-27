@@ -6,4 +6,5 @@ export enum Tag {
   Droppable = 'Droppable',
   Enemy = 'Enemy',
   Root = 'Root',
+  Sharp = 'Sharp',
 }

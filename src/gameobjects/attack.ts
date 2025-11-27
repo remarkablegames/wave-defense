@@ -58,6 +58,10 @@ export function addAttack(hero: Hero) {
   ])
 
   switch (attack.sprite) {
+    case Sprite.Arrow:
+      attack.tag(Tag.Sharp)
+      break
+
     case Sprite.Beachball:
       attack.tag(Tag.Bounce)
       break
