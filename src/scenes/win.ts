@@ -1,6 +1,6 @@
 import { Scene } from '../constants'
 import { state } from '../data'
-import { addButton } from '../gameobjects'
+import { addButton, addConfetti } from '../gameobjects'
 
 const OFFSET_Y = 70
 
@@ -20,4 +20,8 @@ scene(Scene.Win, () => {
       go(Scene.Game)
     },
   })
+
+  addConfetti({ pos: center() })
+
+  onMousePress(() => addConfetti({ pos: mousePos() }))
 })
