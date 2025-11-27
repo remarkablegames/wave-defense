@@ -7,8 +7,10 @@ import {
   addButton,
   addCards,
   addEnemy,
+  addHint,
   addRoot,
   addTimeScale,
+  type Hint,
 } from '../gameobjects'
 
 scene(Scene.Game, () => {
@@ -44,9 +46,22 @@ scene(Scene.Game, () => {
         })
       })
 
+      hint.destroy()
       startButton.destroy()
     },
   })
+
+  let hint: Hint
+
+  if (state.level === 0) {
+    hint = addHint({
+      txt: 'Drag and drop the hero (bottom) to the island (center) and press "Start"',
+      width: 400,
+      height: 100,
+      size: 20,
+      comps: [pos(215, 190)],
+    })
+  }
 
   addTimeScale()
   addBases(level.bases)
