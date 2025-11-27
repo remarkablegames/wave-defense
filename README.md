@@ -14,6 +14,24 @@ Play the game on:
 - [itch.io](https://remarkablegames.itch.io/fantasea)
 - [remarkablegames](https://remarkablegames.org/fantasea)
 
+## Credits
+
+### Art
+
+- [Wavend](https://wavendart.itch.io/)
+
+### Development
+
+- [remarkablemark](https://github.com/remarkablemark)
+
+### Music
+
+- [Michael Kalra](https://earentech.itch.io/)
+
+### Sounds
+
+- [Mouse click](https://pixabay.com/sound-effects/mouse-click-290204/)
+
 ## Prerequisites
 
 - [nvm](https://github.com/nvm-sh/nvm#readme)
