@@ -14,19 +14,21 @@ export function addAttack(hero: Hero) {
 
   const heroPos = hero.screenPos()!
   const direction = enemy.pos.sub(heroPos).unit()
+  let data = beachball
 
-  let attackData = beachball
   switch (hero.sprite) {
     case Sprite.Archer:
-      attackData = arrow
+      data = arrow
       play(Sound.Swish, { volume: 0.8 })
       break
+
     case Sprite.Witch:
-      attackData = beachball
+      data = beachball
       play(Sound.Bounce)
       break
+
     case Sprite.Guard:
-      attackData = beachball
+      data = beachball
       break
   }
 
@@ -34,20 +36,21 @@ export function addAttack(hero: Hero) {
 
   const attack = root.add([
     pos(heroPos),
-    move(direction, attackData.speed),
-    sprite(attackData.sprite, {
-      width: attackData.width,
-      height: attackData.height,
+    move(direction, data.speed),
+    sprite(data.sprite, {
+      width: data.width,
+      height: data.height,
     }),
     area({
-      shape: attackData.shape,
+      shape: data.shape,
     }),
+    health(data.health),
     rotate(enemy.pos.angle(hero.screenPos()!) + 90),
     offscreen({ destroy: true }),
     anchor('center'),
     Tag.Attack,
     {
-      damage: attackData.damage,
+      damage: data.damage,
       direction,
     },
   ])
