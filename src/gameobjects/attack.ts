@@ -45,6 +45,7 @@ export function addAttack(hero: Hero) {
       shape: data.shape,
     }),
     health(data.health),
+    opacity(),
     rotate(enemy.pos.angle(hero.screenPos()!) + 90),
     offscreen({ destroy: true }),
     anchor('center'),
@@ -52,8 +53,17 @@ export function addAttack(hero: Hero) {
     {
       damage: data.damage,
       direction,
+      speed: data.speed,
     },
   ])
+
+  attack.onHurt(() => {
+    attack.opacity = attack.hp / attack.maxHP
+  })
+
+  attack.onDeath(() => {
+    attack.destroy()
+  })
 
   return attack
 }

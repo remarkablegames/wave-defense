@@ -21,9 +21,9 @@ export const beachball = {
   width: 100,
   height: 100,
   shape: new Circle(vec2(), 50) as Shape,
-  damage: 10,
-  health: 10,
-  speed: 100,
+  damage: 1,
+  health: 3,
+  speed: 150,
   timer: {
     wait: 5,
     interval: 5,

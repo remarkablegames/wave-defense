@@ -26,6 +26,10 @@ export function addCollision() {
         return
       }
 
+      addSplash(attack.pos, attack.direction)
+      enemy.hp -= attack.damage
+      attack.hp -= 1
+
       switch (attack.sprite) {
         case Sprite.Arrow:
           play(Sound.Arrow, { volume: 0.5 })
@@ -33,16 +37,14 @@ export function addCollision() {
 
         case Sprite.Beachball:
           play(Sound.Bounce, { detune: randi(0, 12) * 100 })
+          attack.direction = Vec2.fromAngle(attack.pos.angle(enemy.pos))
+          attack.use(move(attack.direction, attack.speed))
           break
 
         default:
           play(Sound.Hit)
           break
       }
-
-      addSplash(attack.pos, attack.direction)
-      attack.destroy()
-      enemy.hp -= attack.damage
     },
   )
 }

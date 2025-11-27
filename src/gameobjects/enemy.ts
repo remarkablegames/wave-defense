@@ -19,7 +19,7 @@ export function addEnemy(data: Data) {
       shape: data.shape,
     }),
     body(),
-    health(data.health, data.health),
+    health(data.health),
     Tag.Enemy,
     {
       base: getRandomBase(),

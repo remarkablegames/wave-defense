@@ -17,7 +17,7 @@ export function addBases(bases: Base[]) {
       anchor('center'),
       area({ shape: data.shape }),
       body({ isStatic: true }),
-      health(data.health, data.health),
+      health(data.health),
       Tag.Base,
     ])
 
