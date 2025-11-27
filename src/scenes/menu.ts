@@ -9,8 +9,8 @@ scene(Scene.Menu, () => {
     const level = parseInt(
       new URLSearchParams(location.search).get('level') || '',
     )
-    if (level >= 0) {
-      state.level = level
+    if (level > 0) {
+      state.level = level - 1
     }
   }
 
