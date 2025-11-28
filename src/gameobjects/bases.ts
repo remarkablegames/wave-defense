@@ -27,9 +27,9 @@ export function addBases(bases: Base[]) {
     base.onDeath(() => {
       base.destroy()
       addKaboom(base.pos)
-      state.tempData.basesTotal -= 1
+      state.temp.basesTotal -= 1
 
-      if (!state.tempData.basesTotal) {
+      if (!state.temp.basesTotal) {
         wait(1, () => go(Scene.Lose))
       }
     })

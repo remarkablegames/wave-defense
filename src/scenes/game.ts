@@ -1,4 +1,4 @@
-import { Scene, Z } from '../constants'
+import { Scene } from '../constants'
 import { levels, state } from '../data'
 import { addCollision } from '../events'
 import {
@@ -8,6 +8,7 @@ import {
   addCards,
   addEnemy,
   addHint,
+  addLevelInfo,
   addRoot,
   addTimeScale,
   type Hint,
@@ -23,16 +24,14 @@ scene(Scene.Game, () => {
     return go(Scene.Win)
   }
 
-  state.tempData.basesTotal = level.bases.length
+  state.temp.basesTotal = level.bases.length
 
-  state.tempData.enemiesTotal = level.enemies.reduce(
+  state.temp.enemiesTotal = level.enemies.reduce(
     (total, enemy) => total + enemy.total,
     0,
   )
 
   const root = addRoot()
-
-  add([text(`Wave: ${state.level + 1}`), pos(12, 12), z(Z.UI)])
 
   const startButton = addButton({
     label: 'Start',
@@ -46,23 +45,26 @@ scene(Scene.Game, () => {
         })
       })
 
-      hint.destroy()
+      hint?.destroy()
       startButton.destroy()
     },
   })
 
-  let hint: Hint
+  let hint: Hint | undefined
 
-  if (state.level === 0) {
-    hint = addHint({
-      txt: 'Drag and drop the hero (bottom) to the island (center) and press "Start"',
-      width: 400,
-      height: 100,
-      size: 20,
-      comps: [pos(215, 190)],
-    })
+  switch (state.level) {
+    case 0:
+      hint = addHint({
+        txt: 'Drag and drop the hero (bottom) to the island (center) and press "Start"',
+        width: 400,
+        height: 100,
+        size: 20,
+        comps: [pos(215, 190)],
+      })
+      break
   }
 
+  addLevelInfo()
   addTimeScale()
   addBases(level.bases)
   addCards(level.heroes)

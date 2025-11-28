@@ -1,26 +1,27 @@
 const key = 'remarkablegames.fantasea'
 
 class State {
-  tempData = {
+  temp = {
     basesTotal: 0,
+    enemiesKilled: 0,
     enemiesTotal: 0,
   }
 
-  private persistData = {
+  private persist = {
     level: 0,
     ...JSON.parse(getData(key)!),
   }
 
   private save() {
-    setData(key, JSON.stringify(this.persistData))
+    setData(key, JSON.stringify(this.persist))
   }
 
   get level() {
-    return this.persistData.level
+    return this.persist.level
   }
 
   set level(level: number) {
-    this.persistData.level = level
+    this.persist.level = level
     this.save()
   }
 }
