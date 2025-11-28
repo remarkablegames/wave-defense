@@ -18,6 +18,7 @@ import {
 } from '../gameobjects'
 
 scene(Scene.Game, () => {
+  setCursor('default')
   addBackground()
   addCollision()
 
@@ -74,6 +75,7 @@ scene(Scene.Game, () => {
     height: 60,
     comps: [pos(90, 90)],
     onClick() {
+      setCursor('default')
       state.temp.start = true
       hint?.destroy()
       startButton.destroy()

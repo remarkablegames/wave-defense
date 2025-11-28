@@ -35,11 +35,14 @@ export function addButton({
 
   button.add([text(label, { size }), anchor('center'), color(BLACK), z(zIndex)])
 
-  const hoverUpdate = button.onHoverUpdate(() => {
+  button.onHover(() => {
+    setCursor('pointer')
+  })
+
+  button.onHoverUpdate(() => {
     const t = time() * 10
     button.color = hsl2rgb((t / 10) % 1, 0.6, 0.7)
     button.scale = vec2(1.05)
-    setCursor('pointer')
   })
 
   button.onHoverEnd(() => {
@@ -50,8 +53,6 @@ export function addButton({
 
   if (typeof onClick === 'function') {
     button.onClick(() => {
-      hoverUpdate.cancel()
-      setCursor('default')
       play(Sound.Click)
       onClick()
     })

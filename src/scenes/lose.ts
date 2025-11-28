@@ -10,11 +10,13 @@ scene(Scene.Lose, () => {
   const actions = [
     {
       text: 'Continue',
-      callback: () => go(Scene.Game),
+      callback() {
+        go(Scene.Game)
+      },
     },
     {
       text: 'Restart',
-      callback: () => {
+      callback() {
         state.level = 0
         go(Scene.Game)
       },
