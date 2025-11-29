@@ -9,32 +9,36 @@ export function addTooltip(options: {
 }) {
   const padding = options.padding || 10
 
-  const tooltip = add([
-    rect(options.width, options.height),
-    color(BLACK),
-    pos(),
-    opacity(0),
-  ])
+  let tooltip: GameObj | undefined
 
-  const tooltipText = tooltip.add([
-    text(options.text, {
-      size: 20,
-      width: options.width - padding * 2,
-    }),
-    color(WHITE),
-    pos(padding),
-    opacity(0),
-  ])
+  options.parent.onHover(() => {
+    tooltip = add([
+      rect(options.width, options.height),
+      color(BLACK),
+      pos(mousePos()),
+      opacity(0.5),
+    ])
+
+    tooltip.add([
+      text(options.text, {
+        size: 20,
+        width: options.width - padding * 2,
+      }),
+      color(WHITE),
+      pos(padding),
+    ])
+  })
 
   options.parent.onHoverUpdate(() => {
-    tooltip.pos = mousePos()
-    tooltip.opacity = 0.5
-    tooltipText.opacity = 1
+    if (tooltip?.exists()) {
+      tooltip.pos = mousePos()
+    }
   })
 
   options.parent.onHoverEnd(() => {
-    tooltip.opacity = 0
-    tooltipText.opacity = 0
+    if (tooltip?.exists()) {
+      tooltip.destroy()
+    }
   })
 
   return tooltip
