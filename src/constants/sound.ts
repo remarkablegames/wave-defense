@@ -3,6 +3,7 @@ export enum Sound {
   Bounce = 'bounce',
   Click = 'click',
   Drag = 'drag',
+  Drop = 'drop',
   Hit = 'hit',
   Hover = 'hover',
   Pop = 'pop',

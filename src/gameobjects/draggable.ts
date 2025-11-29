@@ -1,4 +1,4 @@
-import { Tag, Z } from '../constants'
+import { Sound, Tag, Z } from '../constants'
 import type { Hero } from '../data'
 import { addHero, getDroppables } from '.'
 
@@ -32,6 +32,7 @@ export function addDraggable(hero: Hero) {
 
     getDroppables().forEach((droppable) => {
       if (draggable.isColliding(droppable)) {
+        play(Sound.Drop)
         addHero(hero, droppable)
       }
     })
