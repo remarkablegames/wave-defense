@@ -1,4 +1,4 @@
-import { Sprite, Z } from '../constants'
+import { Sound, Sprite, Z } from '../constants'
 import type { Hero } from '../data'
 import { addDraggable } from '.'
 
@@ -21,8 +21,23 @@ export function addCards(heroes: Hero[]) {
       }),
       pos(index * (data.width + HERO_OFFSET_X) + HERO_OFFSET_X, HERO_OFFSET_Y),
       area(),
+      scale(),
+      color(),
       z(Z.UI),
     ])
+
+    hero.onHover(() => {
+      setCursor('pointer')
+      hero.color = YELLOW
+      hero.scaleTo(1.03)
+      play(Sound.Hover, { volume: 0.5 })
+    })
+
+    hero.onHoverEnd(() => {
+      setCursor('default')
+      hero.color = WHITE
+      hero.scaleTo(1)
+    })
 
     hero.onClick(() => {
       setCursor('grab')

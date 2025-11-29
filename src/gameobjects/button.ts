@@ -24,7 +24,7 @@ export function addButton({
   const button = add([
     rect(width, height, { radius }),
     area(),
-    scale(1),
+    scale(),
     anchor('center'),
     outline(4),
     color(),
@@ -37,7 +37,7 @@ export function addButton({
 
   button.onHover(() => {
     setCursor('pointer')
-    play(Sound.Hover, { volume: 0.7 })
+    play(Sound.Hover, { volume: 0.5 })
   })
 
   button.onHoverUpdate(() => {
@@ -48,8 +48,8 @@ export function addButton({
 
   button.onHoverEnd(() => {
     setCursor('default')
-    button.scale = vec2(1)
-    button.color = rgb()
+    button.color = WHITE
+    button.scaleTo(1)
   })
 
   if (typeof onClick === 'function') {
