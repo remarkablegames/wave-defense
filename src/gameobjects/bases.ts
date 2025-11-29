@@ -1,6 +1,6 @@
 import { Scene, Tag } from '../constants'
 import { type Base, state } from '../data'
-import { addDroppable, addHealth, getRoot } from '.'
+import { addDroppable, addHealth, addTooltip, getRoot } from '.'
 
 export type Bases = ReturnType<typeof addBases>
 
@@ -8,6 +8,8 @@ export function addBases(bases: Base[]) {
   const root = getRoot()
 
   return bases.map((data) => {
+    const { multiplier } = data
+
     const base = root.add([
       sprite(data.sprite, {
         width: data.width,
@@ -20,12 +22,23 @@ export function addBases(bases: Base[]) {
       health(data.health),
       Tag.Base,
       {
-        multiplier: { ...data.multiplier },
+        multiplier,
       },
     ])
 
     addHealth(base)
     addDroppable(base, data.droppable)
+    addTooltip({
+      text: `Cooldown: ×${multiplier.cooldown.toFixed(1)}
+Damage: ×${multiplier.damage.toFixed(1)}
+Health: ×${multiplier.health.toFixed(1)}
+Lifespan: ×${multiplier.lifespan.toFixed(1)}
+Scale: ×${multiplier.scale.toFixed(1)}
+Speed: ×${multiplier.speed.toFixed(1)}`,
+      width: 195,
+      height: 140,
+      parent: base,
+    })
 
     base.onDeath(() => {
       base.destroy()
