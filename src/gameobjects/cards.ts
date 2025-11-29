@@ -41,6 +41,7 @@ export function addCards(heroes: Hero[]) {
 
     hero.onClick(() => {
       setCursor('grab')
+      play(Sound.Drag)
       addDraggable(data)
     })
   })
