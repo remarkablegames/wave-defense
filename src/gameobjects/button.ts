@@ -37,6 +37,7 @@ export function addButton({
 
   button.onHover(() => {
     setCursor('pointer')
+    play(Sound.Hover, { volume: 0.7 })
   })
 
   button.onHoverUpdate(() => {
