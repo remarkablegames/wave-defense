@@ -21,9 +21,9 @@ export const beachball = {
   width: 100,
   height: 100,
   shape: new Circle(vec2(), 50) as Shape,
-  damage: 2,
-  health: 2,
-  speed: 150,
+  damage: 3,
+  health: 3,
+  speed: 100,
   timer: {
     wait: 5,
     interval: 5,
@@ -35,7 +35,7 @@ export const sword = {
   width: 100,
   height: 60,
   shape: new Polygon([vec2(-100, -30), vec2(), vec2()]),
-  damage: 0.5,
+  damage: 1,
   health: 10,
   speed: 150,
   timer: {

@@ -5,10 +5,23 @@ const hints = [
   // 0
   {
     text: 'Drag and drop the hero (bottom) to the island (center) and press "Start"',
-    width: 400,
-    height: 100,
+    height: 80,
+  },
+
+  // 1
+  {
+    text: 'Every hero has a unique attack',
+    height: 50,
+  },
+
+  // 2
+  {
+    text: 'Look for good strategies to defeat the enemies',
+    height: 60,
   },
 ]
+
+const width = 400
 
 export function addHint() {
   const hint = hints[state.level]
@@ -18,11 +31,11 @@ export function addHint() {
   }
 
   const box = add([
-    rect(hint.width, hint.height),
+    rect(width, hint.height),
     anchor('center'),
     color(BLACK),
     opacity(0.3),
-    pos(215, 190),
+    pos(215, 175),
     Tag.Hint,
   ])
 
@@ -30,7 +43,7 @@ export function addHint() {
     text(hint.text, {
       align: 'center',
       size: 20,
-      width: hint.width,
+      width,
     }),
     anchor('center'),
     color(WHITE),

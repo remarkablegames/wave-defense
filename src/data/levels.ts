@@ -19,6 +19,14 @@ export type Hero = Level['heroes'][0]
 export const levels = [
   // 0
   {
+    heroes: [guard],
+    bases: [
+      {
+        ...island,
+        health: 3,
+        pos: center(),
+      },
+    ],
     enemies: [
       {
         total: 5,
@@ -32,22 +40,66 @@ export const levels = [
         },
         timer: {
           wait: 0,
-          interval: 3,
+          interval: 2,
         },
-      },
-    ],
-    heroes: [archer],
-    bases: [
-      {
-        ...island,
-        health: 3,
-        pos: center(),
       },
     ],
   },
 
   // 1
   {
+    heroes: [guard, witch],
+    bases: [
+      {
+        ...island,
+        health: 3,
+        pos: vec2(center().x - 150, center().y),
+      },
+      {
+        ...island,
+        health: 3,
+        pos: vec2(center().x + 150, center().y),
+      },
+    ],
+    enemies: [
+      {
+        total: 10,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 2,
+        },
+      },
+    ],
+  },
+
+  // 2
+  {
+    heroes: [guard, witch, archer],
+    bases: [
+      {
+        ...island,
+        health: 3,
+        pos: vec2(center().x - 300, center().y),
+      },
+      {
+        ...yellowstone,
+        health: 3,
+        pos: vec2(center().x, center().y),
+      },
+      {
+        ...blackrock,
+        health: 3,
+        pos: vec2(center().x + 300, center().y),
+      },
+    ],
     enemies: [
       {
         total: 5,
@@ -93,24 +145,6 @@ export const levels = [
           wait: 6,
           interval: 5,
         },
-      },
-    ],
-    heroes: [guard, witch, archer],
-    bases: [
-      {
-        ...island,
-        health: 3,
-        pos: vec2(center().x - 300, center().y),
-      },
-      {
-        ...yellowstone,
-        health: 3,
-        pos: vec2(center().x, center().y),
-      },
-      {
-        ...blackrock,
-        health: 3,
-        pos: vec2(center().x + 300, center().y),
       },
     ],
   },

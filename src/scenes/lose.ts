@@ -9,7 +9,7 @@ scene(Scene.Lose, () => {
 
   const actions = [
     {
-      text: 'Continue',
+      text: 'Retry',
       callback() {
         go(Scene.Game)
       },
