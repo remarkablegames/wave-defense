@@ -12,13 +12,15 @@ class State {
     start: false,
   }
 
-  private persist = {
-    level: 0,
-    ...JSON.parse(getData(key)!),
+  private init() {
+    return {
+      level: 0,
+    }
   }
 
-  private save() {
-    setData(key, JSON.stringify(this.persist))
+  private persist: ReturnType<typeof this.init> = {
+    ...this.init(),
+    ...JSON.parse(getData(key)!),
   }
 
   get level() {
@@ -26,8 +28,16 @@ class State {
   }
 
   set level(level: number) {
-    this.persist.level = level
+    if (level === 0) {
+      this.persist = this.init()
+    } else {
+      this.persist.level = level
+    }
     this.save()
+  }
+
+  private save() {
+    setData(key, JSON.stringify(this.persist))
   }
 }
 
