@@ -23,7 +23,7 @@ export const levels = [
     bases: [
       {
         ...island,
-        health: 3,
+        health: 4,
         pos: center(),
       },
     ],

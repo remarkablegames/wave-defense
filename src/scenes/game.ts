@@ -19,14 +19,15 @@ import {
 
 scene(Scene.Game, () => {
   setCursor('default')
-  addBackground()
-  addCollision()
 
   const level = levels[state.level]
 
   if (!level) {
     return go(Scene.Win)
   }
+
+  addBackground()
+  addCollision()
 
   state.temp.start = false
   state.temp.basesTotal = level.bases.length
