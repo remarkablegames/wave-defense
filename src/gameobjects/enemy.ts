@@ -48,15 +48,19 @@ export function addEnemy(data: Data) {
     addKaboom(enemy.pos)
     play(Sound.Grunt, { detune: randi(0, 6) * 100 })
 
-    state.temp.enemies.find(({ sprite }) => sprite === enemy.sprite)!.total -= 1
-    state.temp.enemiesKilled += 1
+    const currentState = state.temp
+    const enemyState = currentState.enemies.find(
+      ({ sprite }) => sprite === enemy.sprite,
+    )!
+    enemyState.total -= 1
+    currentState.enemiesKilled += 1
     root.trigger(Event.EnemyCounter)
 
     if (!getBases().length) {
       return
     }
 
-    if (state.temp.enemiesKilled === state.temp.enemiesTotal) {
+    if (currentState.enemiesKilled === currentState.enemiesTotal) {
       state.level += 1
       wait(1, () => go(Scene.Game))
     }
