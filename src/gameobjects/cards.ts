@@ -3,8 +3,8 @@ import type { Hero } from '../data'
 import { addDraggable } from '.'
 
 const SHORE_OFFSET_Y = 150
-const HERO_OFFSET_X = 20
-const HERO_OFFSET_Y = 25
+const HERO_OFFSET_X = 35
+const HERO_OFFSET_Y = 15
 
 export function addCards(heroes: Hero[]) {
   const shore = add([
@@ -16,8 +16,7 @@ export function addCards(heroes: Hero[]) {
   heroes.forEach((data, index) => {
     const hero = shore.add([
       sprite(data.sprite, {
-        width: data.width,
-        height: data.height,
+        width: 115,
       }),
       pos(index * (data.width + HERO_OFFSET_X) + HERO_OFFSET_X, HERO_OFFSET_Y),
       area(),
