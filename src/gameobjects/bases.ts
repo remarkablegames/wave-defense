@@ -1,5 +1,5 @@
 import { Scene, Tag } from '../constants'
-import { type Base, state } from '../data'
+import { type Base, type BaseMultiplier, state } from '../data'
 import { addDroppable, addHealth, addTooltip, getRoot } from '.'
 
 export type Bases = ReturnType<typeof addBases>
@@ -8,7 +8,11 @@ export function addBases(bases: Base[]) {
   const root = getRoot()
 
   return bases.map((data) => {
-    const { multiplier } = data
+    const multiplier = { ...data.multiplier }
+
+    Object.entries(state.multiplier[data.sprite]).forEach(([key, value]) => {
+      multiplier[key as keyof BaseMultiplier] *= value
+    })
 
     const base = root.add([
       sprite(data.sprite, {
@@ -29,14 +33,14 @@ export function addBases(bases: Base[]) {
     addHealth(base)
     addDroppable(base, data.droppable)
     addTooltip({
+      width: 240,
+      height: 140,
       text: `Cooldown: ×${multiplier.cooldown.toFixed(2)}
 Damage: ×${multiplier.damage.toFixed(2)}
-Health: ×${multiplier.health.toFixed(2)}
-Lifespan: ×${multiplier.lifespan.toFixed(2)}
-Scale: ×${multiplier.scale.toFixed(2)}
+Penetration: ×${multiplier.health.toFixed(2)}
+Duration: ×${multiplier.lifespan.toFixed(2)}
+Size: ×${multiplier.scale.toFixed(2)}
 Speed: ×${multiplier.speed.toFixed(2)}`,
-      width: 205,
-      height: 140,
       parent: base,
     })
 
