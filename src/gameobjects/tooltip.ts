@@ -1,10 +1,13 @@
-import type { AreaComp, GameObj } from 'kaplay'
+import type { Anchor, AreaComp, GameObj } from 'kaplay'
+
+import { Z } from '../constants'
 
 export function addTooltip(options: {
   text: string
   width: number
   height: number
   parent: GameObj<AreaComp>
+  anchor?: Anchor
   padding?: number
 }) {
   const padding = options.padding || 10
@@ -15,8 +18,9 @@ export function addTooltip(options: {
     tooltip = add([
       rect(options.width, options.height),
       color(BLACK),
-      pos(mousePos()),
+      pos(),
       opacity(0.5),
+      z(Z.Tooltip),
     ])
 
     tooltip.add([
@@ -26,12 +30,17 @@ export function addTooltip(options: {
       }),
       color(WHITE),
       pos(padding),
+      z(Z.Tooltip),
     ])
   })
 
   options.parent.onHoverUpdate(() => {
     if (tooltip?.exists()) {
       tooltip.pos = mousePos()
+
+      if (options.anchor === 'botleft') {
+        tooltip.pos.y -= options.height
+      }
     }
   })
 

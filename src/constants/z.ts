@@ -1,4 +1,5 @@
 export enum Z {
   UI = 100,
-  Modal = 200,
+  Tooltip = 200,
+  Modal = 300,
 }

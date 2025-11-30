@@ -1,6 +1,7 @@
 import { Sound, Sprite, Z } from '../constants'
-import type { Hero } from '../data'
-import { addDraggable } from '.'
+import { type Hero, state } from '../data'
+import { getMultiplierText } from '../helpers'
+import { addDraggable, addTooltip } from '.'
 
 const SHORE_OFFSET_Y = 150
 const HERO_OFFSET_X = 35
@@ -14,7 +15,7 @@ export function addCards(heroes: Hero[]) {
   ])
 
   heroes.forEach((data, index) => {
-    const hero = shore.add([
+    const card = shore.add([
       sprite(data.sprite, {
         width: 115,
       }),
@@ -25,23 +26,31 @@ export function addCards(heroes: Hero[]) {
       z(Z.UI),
     ])
 
-    hero.onHover(() => {
+    card.onHover(() => {
       setCursor('pointer')
-      hero.color = YELLOW
-      hero.scaleTo(1.03)
+      card.color = YELLOW
+      card.scaleTo(1.03)
       play(Sound.Hover, { volume: 0.5 })
     })
 
-    hero.onHoverEnd(() => {
+    card.onHoverEnd(() => {
       setCursor('default')
-      hero.color = WHITE
-      hero.scaleTo(1)
+      card.color = WHITE
+      card.scaleTo(1)
     })
 
-    hero.onClick(() => {
+    card.onClick(() => {
       setCursor('grab')
       play(Sound.Drag)
       addDraggable(data)
+    })
+
+    addTooltip({
+      width: 240,
+      height: 140,
+      text: getMultiplierText(state.multiplier[data.sprite]),
+      anchor: 'botleft',
+      parent: card,
     })
   })
 }
