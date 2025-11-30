@@ -9,13 +9,13 @@ const HEIGHT = 300
 export function addReward() {
   const modal = addModal()
 
-  const { x, y } = center()
+  const menuCenter = center().sub(WIDTH / 2, HEIGHT / 2)
 
   const menu = modal.add([
     rect(WIDTH, HEIGHT),
     color(BLACK),
     outline(4, CYAN),
-    pos(x - WIDTH / 2, y - HEIGHT / 2),
+    pos(menuCenter.x, height()),
     opacity(0.8),
     z(modal.z),
   ])
@@ -68,6 +68,14 @@ export function addReward() {
       go(Scene.Game)
     })
   })
+
+  tween(
+    menu.pos,
+    menuCenter,
+    1,
+    (position) => (menu.pos = position),
+    easings.easeOutElastic,
+  )
 }
 
 interface Reward {
