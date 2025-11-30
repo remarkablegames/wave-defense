@@ -31,8 +31,9 @@ export function addBases(bases: Base[]) {
     addDroppable(base, data.droppable)
     addTooltip({
       width: 240,
-      height: 140,
-      text: getMultiplierText(multiplier),
+      height: 160,
+      text: `Max HP: ${data.health}
+${getMultiplierText(multiplier)}`,
       parent: base,
     })
 
