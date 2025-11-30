@@ -2,6 +2,9 @@ import type { Shape } from 'kaplay'
 
 import { Sprite } from '../constants'
 
+type Base = typeof blackrock
+export type BaseMultiplier = Base['multiplier']
+
 export const blackrock = {
   sprite: Sprite.Blackrock,
   width: 162,

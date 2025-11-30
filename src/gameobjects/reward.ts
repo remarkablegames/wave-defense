@@ -1,4 +1,5 @@
 import { Sound, Sprite } from '../constants'
+import { type BaseMultiplier, rewards } from '../data'
 import { addModal } from '.'
 
 const PADDING = 20
@@ -19,44 +20,66 @@ export function addReward() {
     z(modal.z),
   ])
 
-  menu.add([text('Choose a reward:'), color(GREEN), pos(PADDING), z(modal.z)])
+  menu.add([text('Select 1 reward:'), color(GREEN), pos(PADDING), z(modal.z)])
+
+  const rewards = getRewards()
 
   menu.add([
-    text('Select an entity to increase damage by 20%.', {
+    text(rewards[0].text, {
       size: 30,
-      width: WIDTH,
+      width: WIDTH - PADDING * 2,
     }),
     pos(PADDING, PADDING * 4),
     z(modal.z),
   ])
 
-  const reward = menu.add([
-    sprite(Sprite.Guard, {
-      width: 100,
-      height: 114,
-    }),
-    pos(PADDING, PADDING * 8),
-    area(),
-    color(),
-    scale(),
-    z(modal.z),
-  ])
+  rewards.forEach((reward, index) => {
+    const choice = menu.add([
+      sprite(reward.sprite, {
+        width: 100,
+      }),
+      pos(200 * index + PADDING, PADDING * 8),
+      area(),
+      color(),
+      scale(),
+      z(modal.z),
+    ])
 
-  reward.onHover(() => {
-    setCursor('pointer')
-    reward.color = YELLOW
-    reward.scaleTo(1.03)
-    play(Sound.Hover, { volume: 0.5 })
-  })
+    choice.onHover(() => {
+      setCursor('pointer')
+      choice.color = YELLOW
+      choice.scaleTo(1.03)
+      play(Sound.Hover, { volume: 0.5 })
+    })
 
-  reward.onHoverEnd(() => {
-    setCursor('default')
-    reward.color = WHITE
-    reward.scaleTo(1)
-  })
+    choice.onHoverEnd(() => {
+      setCursor('default')
+      choice.color = WHITE
+      choice.scaleTo(1)
+    })
 
-  reward.onClick(() => {
-    play(Sound.Click)
-    modal.destroy()
+    choice.onClick(() => {
+      play(Sound.Click)
+      modal.destroy()
+    })
   })
+}
+
+type Reward = Partial<BaseMultiplier> & { sprite: Sprite; text: string }
+
+function getRewards(): Reward[] {
+  const multipliers = chooseMultiple(rewards.multipliers, 1)
+  const entities = chooseMultiple(rewards.entities, 3)
+
+  return multipliers.reduce(
+    (accumulator, { text, multiplier }) =>
+      accumulator.concat(
+        entities.map(({ sprite }) => ({
+          sprite,
+          multiplier,
+          text,
+        })),
+      ),
+    [] as Reward[],
+  )
 }
