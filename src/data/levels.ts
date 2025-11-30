@@ -53,12 +53,12 @@ export const levels = [
       {
         ...island,
         health: 4,
-        pos: vec2(center().x, center().y - 100),
+        pos: vec2(center().sub(0, 100)),
       },
       {
         ...island,
         health: 4,
-        pos: vec2(center().x, center().y + 100),
+        pos: vec2(center().add(0, 100)),
       },
     ],
     enemies: [
@@ -87,12 +87,12 @@ export const levels = [
       {
         ...island,
         health: 3,
-        pos: vec2(center().x - 200, center().y),
+        pos: vec2(center().sub(200, 0)),
       },
       {
         ...island,
         health: 3,
-        pos: vec2(center().x + 200, center().y),
+        pos: vec2(center().add(200, 0)),
       },
     ],
     enemies: [
@@ -131,22 +131,76 @@ export const levels = [
 
   // 4
   {
+    heroes: [guard, witch],
+    bases: [
+      {
+        ...island,
+        health: 3,
+        pos: vec2(center().sub(150)),
+      },
+      {
+        ...island,
+        health: 3,
+        pos: vec2(center()),
+      },
+      {
+        ...island,
+        health: 3,
+        pos: vec2(center().add(150)),
+      },
+    ],
+    enemies: [
+      {
+        total: 6,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 2,
+        },
+      },
+      {
+        total: 6,
+        enemy: {
+          ...goblin,
+          damage: 2,
+          get speed() {
+            return randi(100, 120)
+          },
+          health: 2,
+        },
+        timer: {
+          wait: 3,
+          interval: 0,
+        },
+      },
+    ],
+  },
+
+  // 5
+  {
     heroes: [guard, witch, archer],
     bases: [
       {
         ...island,
         health: 3,
-        pos: vec2(center().x - 300, center().y),
+        pos: center().sub(300, 0),
       },
       {
         ...yellowstone,
         health: 3,
-        pos: vec2(center().x, center().y),
+        pos: center(),
       },
       {
         ...blackrock,
         health: 3,
-        pos: vec2(center().x + 300, center().y),
+        pos: center().add(300, 0),
       },
     ],
     enemies: [
