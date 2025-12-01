@@ -17,12 +17,12 @@ export function addEnemy(data: Data) {
     area({
       shape: data.shape,
     }),
+    scale(data.scale),
     body(),
     health(data.health),
     Tag.Enemy,
     {
       base: getRandomBase(),
-      damage: data.damage,
       speed: data.speed,
     },
   ])

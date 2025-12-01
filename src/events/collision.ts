@@ -12,8 +12,14 @@ export function addCollision() {
       }
 
       play(Sound.Hit)
-      base.hp -= enemy.damage
-      enemy.hp = 0
+
+      if (enemy.hp >= base.hp) {
+        enemy.hp -= base.hp
+        base.hp = 0
+      } else {
+        base.hp -= enemy.hp
+        enemy.hp = 0
+      }
     },
   )
 

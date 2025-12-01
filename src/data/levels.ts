@@ -39,11 +39,10 @@ export const levels = [
         total: 3,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 0,
@@ -78,11 +77,10 @@ export const levels = [
         total: 8,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 0,
@@ -117,11 +115,10 @@ export const levels = [
         total: 6,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 0,
@@ -132,11 +129,10 @@ export const levels = [
         total: 2,
         enemy: {
           ...goblin,
-          damage: 2,
+          health: 2,
           get speed() {
             return randi(100, 120)
           },
-          health: 2,
         },
         timer: {
           wait: 3,
@@ -176,11 +172,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 0,
@@ -191,11 +186,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...goblin,
-          damage: 2,
+          health: 2,
           get speed() {
             return randi(100, 120)
           },
-          health: 2,
         },
         timer: {
           wait: 3,
@@ -240,11 +234,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 0,
@@ -255,11 +248,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...goblin,
-          damage: 2,
+          health: 2,
           get speed() {
             return randi(100, 120)
           },
-          health: 2,
         },
         timer: {
           wait: 3,
@@ -270,11 +262,10 @@ export const levels = [
         total: 1,
         enemy: {
           ...orc,
-          damage: 3,
+          health: 5,
           get speed() {
             return randi(80, 100)
           },
-          health: 5,
         },
         timer: {
           wait: 6,
@@ -324,11 +315,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 0,
@@ -339,11 +329,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...goblin,
-          damage: 2,
+          health: 2,
           get speed() {
             return randi(100, 120)
           },
-          health: 2,
         },
         timer: {
           wait: 3,
@@ -354,11 +343,10 @@ export const levels = [
         total: 2,
         enemy: {
           ...orc,
-          damage: 3,
+          health: 5,
           get speed() {
             return randi(80, 100)
           },
-          health: 5,
         },
         timer: {
           wait: 6,
@@ -388,7 +376,6 @@ export const levels = [
         total: 10,
         enemy: {
           ...slime,
-          damage: 1,
           get speed() {
             return randi(80, 100)
           },
@@ -403,11 +390,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 3,
@@ -418,11 +404,10 @@ export const levels = [
         total: 10,
         enemy: {
           ...goblin,
-          damage: 2,
+          health: 2,
           get speed() {
             return randi(100, 120)
           },
-          health: 2,
         },
         timer: {
           wait: 5,
@@ -457,11 +442,10 @@ export const levels = [
         total: 10,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(160, 180)
           },
-          health: 1,
         },
         timer: {
           wait: 1,
@@ -472,11 +456,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 0,
@@ -487,11 +470,10 @@ export const levels = [
         total: 5,
         enemy: {
           ...goblin,
-          damage: 2,
+          health: 2,
           get speed() {
             return randi(100, 120)
           },
-          health: 2,
         },
         timer: {
           wait: 5,
@@ -536,11 +518,10 @@ export const levels = [
         total: 15,
         enemy: {
           ...slime,
-          damage: 1,
+          health: 1,
           get speed() {
             return randi(80, 100)
           },
-          health: 1,
         },
         timer: {
           wait: 0,
@@ -551,12 +532,11 @@ export const levels = [
         total: 3,
         enemy: {
           ...goblin,
-          width: 150,
-          damage: 3,
+          health: 5,
+          scale: 1.5,
           get speed() {
             return randi(60, 80)
           },
-          health: 5,
         },
         timer: {
           wait: 3,
@@ -567,16 +547,98 @@ export const levels = [
         total: 3,
         enemy: {
           ...orc,
-          width: 200,
-          damage: 5,
+          health: 5,
+          scale: 2,
           get speed() {
             return randi(40, 60)
           },
-          health: 5,
         },
         timer: {
           wait: 6,
           interval: 3,
+        },
+      },
+    ],
+  },
+
+  // 10
+  {
+    hint: {
+      text: 'Defeat the boss',
+      width: 200,
+      height: 40,
+    },
+    heroes: [guard, witch, archer],
+    bases: [
+      {
+        ...blackrock,
+        health: 5,
+        pos: center().sub(0, 200),
+      },
+      {
+        ...blackrock,
+        health: 5,
+        pos: center().add(0, 200),
+      },
+      {
+        ...yellowstone,
+        health: 5,
+        pos: center().sub(300, 0),
+      },
+      {
+        ...yellowstone,
+        health: 5,
+        pos: center().add(300, 0),
+      },
+      {
+        ...island,
+        health: 10,
+        pos: center(),
+      },
+    ],
+    enemies: [
+      {
+        total: 30,
+        enemy: {
+          ...slime,
+          health: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+        },
+        timer: {
+          wait: 0,
+          interval: 1,
+        },
+      },
+      {
+        total: 5,
+        enemy: {
+          ...goblin,
+          health: 3,
+          scale: 1.5,
+          get speed() {
+            return randi(60, 80)
+          },
+        },
+        timer: {
+          wait: 3,
+          interval: 3,
+        },
+      },
+      {
+        total: 1,
+        enemy: {
+          ...orc,
+          health: 25,
+          scale: 4,
+          get speed() {
+            return randi(10, 20)
+          },
+        },
+        timer: {
+          wait: 6,
+          interval: 0,
         },
       },
     ],
