@@ -1,12 +1,12 @@
 import { Tag } from '../constants'
-import { hints, state } from '../data'
+import { levels, state } from '../data'
 
 const PADDING = 10
 
 export function addHint() {
-  const hint = hints[state.level]
+  const { hint } = levels[state.level]
 
-  if (!hint) {
+  if (!hint?.text) {
     return
   }
 

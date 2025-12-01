@@ -21,6 +21,11 @@ export const levels = [
 
   // 1
   {
+    hint: {
+      text: 'Drag and drop the hero (bottom) to your base (center) and press "Start"',
+      width: 400,
+      height: 80,
+    },
     heroes: [guard],
     bases: [
       {
@@ -50,6 +55,11 @@ export const levels = [
 
   // 2
   {
+    hint: {
+      text: 'You can attach the same hero to multiple bases',
+      width: 400,
+      height: 60,
+    },
     heroes: [guard],
     bases: [
       {
@@ -84,6 +94,11 @@ export const levels = [
 
   // 3
   {
+    hint: {
+      text: "Each hero's attack is different",
+      width: 400,
+      height: 40,
+    },
     heroes: [guard, witch],
     bases: [
       {
@@ -133,6 +148,11 @@ export const levels = [
 
   // 4
   {
+    hint: {
+      text: 'Hover over your base to see its multiplier effects',
+      width: 400,
+      height: 60,
+    },
     heroes: [guard, witch],
     bases: [
       {
@@ -187,6 +207,11 @@ export const levels = [
 
   // 5
   {
+    hint: {
+      text: 'Come up with strategies to defeat the enemies',
+      width: 350,
+      height: 60,
+    },
     heroes: [guard, witch, archer],
     bases: [
       {
@@ -261,6 +286,11 @@ export const levels = [
 
   // 6
   {
+    hint: {
+      text: 'Protect the president',
+      width: 280,
+      height: 40,
+    },
     heroes: [guard, witch, archer],
     bases: [
       {
@@ -340,6 +370,11 @@ export const levels = [
 
   // 7
   {
+    hint: {
+      text: 'Survive the horde',
+      width: 230,
+      height: 40,
+    },
     heroes: [archer],
     bases: [
       {
