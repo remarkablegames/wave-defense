@@ -40,4 +40,11 @@ export const hints = [
     width: 280,
     height: 40,
   },
+
+  // 7
+  {
+    text: 'Survive the horde',
+    width: 230,
+    height: 40,
+  },
 ]

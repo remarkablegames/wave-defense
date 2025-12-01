@@ -338,5 +338,64 @@ export const levels = [
     ],
   },
 
+  // 7
+  {
+    heroes: [archer],
+    bases: [
+      {
+        ...yellowstone,
+        health: 20,
+        pos: center(),
+      },
+    ],
+    enemies: [
+      {
+        total: 10,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 0,
+        },
+      },
+      {
+        total: 5,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 3,
+          interval: 3,
+        },
+      },
+      {
+        total: 10,
+        enemy: {
+          ...goblin,
+          damage: 2,
+          get speed() {
+            return randi(100, 120)
+          },
+          health: 2,
+        },
+        timer: {
+          wait: 5,
+          interval: 2,
+        },
+      },
+    ],
+  },
+
   // end
 ]
