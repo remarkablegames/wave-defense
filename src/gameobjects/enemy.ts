@@ -11,7 +11,6 @@ export function addEnemy(data: Data) {
   const enemy = root.add([
     sprite(data.sprite, {
       width: data.width,
-      height: data.height,
     }),
     pos(generateEnemyPos()),
     anchor('center'),

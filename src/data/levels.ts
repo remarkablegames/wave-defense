@@ -501,5 +501,86 @@ export const levels = [
     ],
   },
 
+  // 9
+  {
+    hint: {
+      text: 'Some enemies have high health and damage',
+      width: 400,
+      height: 60,
+    },
+    heroes: [guard, witch, archer],
+    bases: [
+      {
+        ...yellowstone,
+        health: 5,
+        pos: center().sub(0, 100),
+      },
+      {
+        ...blackrock,
+        health: 5,
+        pos: center().add(0, 100),
+      },
+      {
+        ...island,
+        health: 5,
+        pos: center().sub(250, 0),
+      },
+      {
+        ...island,
+        health: 5,
+        pos: center().add(250, 0),
+      },
+    ],
+    enemies: [
+      {
+        total: 15,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 1,
+        },
+      },
+      {
+        total: 3,
+        enemy: {
+          ...goblin,
+          width: 150,
+          damage: 3,
+          get speed() {
+            return randi(60, 80)
+          },
+          health: 5,
+        },
+        timer: {
+          wait: 3,
+          interval: 3,
+        },
+      },
+      {
+        total: 3,
+        enemy: {
+          ...orc,
+          width: 200,
+          damage: 5,
+          get speed() {
+            return randi(40, 60)
+          },
+          health: 5,
+        },
+        timer: {
+          wait: 6,
+          interval: 3,
+        },
+      },
+    ],
+  },
+
   // end
 ]
