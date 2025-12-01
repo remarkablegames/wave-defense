@@ -7,12 +7,21 @@
 [![release](https://img.shields.io/github/v/release/remarkablegames/fantasea)](https://github.com/remarkablegames/fantasea/releases)
 [![build](https://github.com/remarkablegames/fantasea/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablegames/fantasea/actions/workflows/build.yml)
 
-🏖️ Heroes at the beach, but the monsters crash the party.
+🏖️ **FantaSea: Heroes on Vacation** is a tower defense game where you assign heroes on the beach to combat waves of monsters.
+
+This game was made for [GitHub Game Off 2025](https://itch.io/jam/game-off-2025), which the theme was **WAVES**.
 
 Play the game on:
 
 - [itch.io](https://remarkablegames.itch.io/fantasea)
 - [remarkablegames](https://remarkablegames.org/fantasea)
+
+## How to Play
+
+- Drag your hero and place it on your base
+- Click "Start" to begin the level
+- Defeat the wave of monsters to progress the level
+- Select a reward to upgrade your stats
 
 ## Credits
 
