@@ -432,5 +432,74 @@ export const levels = [
     ],
   },
 
+  // 8
+  {
+    hint: {
+      text: 'Watch out for fast enemies',
+      width: 340,
+      height: 40,
+    },
+    heroes: [guard, witch, archer],
+    bases: [
+      {
+        ...yellowstone,
+        health: 6,
+        pos: center().sub(0, 100),
+      },
+      {
+        ...blackrock,
+        health: 6,
+        pos: center().add(0, 100),
+      },
+    ],
+    enemies: [
+      {
+        total: 10,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(160, 180)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 1,
+          interval: 2,
+        },
+      },
+      {
+        total: 5,
+        enemy: {
+          ...slime,
+          damage: 1,
+          get speed() {
+            return randi(80, 100)
+          },
+          health: 1,
+        },
+        timer: {
+          wait: 0,
+          interval: 1,
+        },
+      },
+      {
+        total: 5,
+        enemy: {
+          ...goblin,
+          damage: 2,
+          get speed() {
+            return randi(100, 120)
+          },
+          health: 2,
+        },
+        timer: {
+          wait: 5,
+          interval: 2,
+        },
+      },
+    ],
+  },
+
   // end
 ]
